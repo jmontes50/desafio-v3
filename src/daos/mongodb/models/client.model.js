@@ -24,11 +24,9 @@ const clientSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Cart",
     },
-    address: {
-      type: String,
-    },
-    zip_code: {
-      type: Number,
+    locations: {
+      type: Array,
+      default: [],
     },
     active: {
       type: Boolean,
