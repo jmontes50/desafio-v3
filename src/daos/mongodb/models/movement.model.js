@@ -27,9 +27,35 @@ const movementSchema = new Schema(
       ref: "User",
       required: true,
     },
+    status: {
+      type: String,
+      enum: ["created", "pending", "process", "done", "canceled"],
+    },
+    commentary: [
+      {
+        dateEntry: {
+          type: Date,
+          default: Date.now,
+        },
+        comment: {
+          type: String,
+          required: true,
+        },
+        user: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+          required: true,
+        },
+      },
+    ],
     dateEntry: {
       type: Date,
       default: Date.now,
+      required: true,
+    },
+    active: {
+      type: Boolean,
+      default: true,
       required: true,
     },
   },
@@ -38,4 +64,4 @@ const movementSchema = new Schema(
   },
 );
 
-const movementModel = model("Movement", movementModel);
+export const movementModel = model("Movement", movementSchema);

@@ -31,6 +31,10 @@ const locationSchema = new Schema(
       type: Number,
       required: true,
     },
+    active: {
+      type: Boolean,
+      default: true,
+    },
   },
   {
     timestamps: true,

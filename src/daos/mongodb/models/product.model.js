@@ -17,10 +17,24 @@ const productSchema = new Schema(
       type: String,
       default: "",
     },
-    image: {
-      type: Array,
-      default: [],
+    defaultImage: {
+      type: String,
+      default: "",
     },
+    variants: [
+      {
+        nameVariant: {
+          type: String,
+          required: true,
+        },
+        imageVariant: {
+          type: String,
+        },
+        variantPrice: {
+          type: Number,
+        },
+      },
+    ],
     type: {
       ref: "Category",
       type: Schema.Types.ObjectId,
@@ -29,6 +43,7 @@ const productSchema = new Schema(
     active: {
       type: Boolean,
       default: true,
+      required: true,
     },
   },
   {

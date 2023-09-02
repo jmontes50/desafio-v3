@@ -19,6 +19,11 @@ const storageSchema = new Schema({
   description: {
     type: String,
   },
+  active: {
+    type: Boolean,
+    default: true,
+    required: true,
+  },
 });
 
 export const storageModel = model("Storage", storageSchema);
