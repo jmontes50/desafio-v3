@@ -39,6 +39,4 @@ const clientSchema = new Schema(
   },
 );
 
-const ClientModel = model("Client", clientSchema);
-
-export { ClientModel };
+export const clientModel = model("Client", clientSchema);
