@@ -1,5 +1,5 @@
 import Services from './class.services.js';
-import { pkg } from "jsonwebtoken";
+import pkg from "jsonwebtoken";
 import "dotenv/config"
 
 import UserDao from "../daos/mongodb/user.dao.js";
