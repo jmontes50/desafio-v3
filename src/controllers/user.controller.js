@@ -1,5 +1,6 @@
 import ClassController from "./class.controller.js";
 import UserServices from "../services/user.services.js";
+import { createResponse } from "../utils.js";
 
 const userService = new UserServices();
 
@@ -24,6 +25,7 @@ export default class UserController extends ClassController{
       res.header("Authorization", token);
       createResponse(res, 200, token);
     } catch (error) {
+      console.log(error);
       next(error.message);
     }
   };
@@ -38,6 +40,7 @@ export default class UserController extends ClassController{
         role,
       });
     } catch (error) {
+      console.log(error);
       next(error.message);
     }
   };

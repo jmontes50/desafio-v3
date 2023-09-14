@@ -6,9 +6,14 @@ import UserDao from "../daos/mongodb/user.dao.js";
 
 const SECRET_KEY = process.env.JWT_SECRET;
 
+const userDao = new UserDao();
+
+console.log({ userDao});
+console.log("props dao", userDao.register);
+
 export default class UserServices extends Services {
     constructor() {
-        super(new UserDao())
+        super(userDao)
     }
 
     #generateToken(user) {
@@ -19,11 +24,15 @@ export default class UserServices extends Services {
     }
 
     async register(user) {
-     return await UserDao.register(user)
+      try {
+        return await userDao.register(user)
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     async login(user) {
-      const userExists = await UserDao.login(user)
+      const userExists = await userDao.login(user)
       if(userExists) {
         const token = this.#generateToken(userExists)
         return { token, user: userExists }
