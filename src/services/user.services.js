@@ -8,9 +8,6 @@ const SECRET_KEY = process.env.JWT_SECRET;
 
 const userDao = new UserDao();
 
-console.log({ userDao});
-console.log("props dao", userDao.register);
-
 export default class UserServices extends Services {
     constructor() {
         super(userDao)
