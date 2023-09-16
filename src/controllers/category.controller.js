@@ -3,7 +3,7 @@ import CategoryServices from "../services/category.services.js";
 
 const categoryService = new CategoryServices();
 
-export default class CategoryController extends ClassController{
+export default class CategoryController extends ClassController {
   constructor() {
     super(categoryService);
   }

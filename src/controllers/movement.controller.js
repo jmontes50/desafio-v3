@@ -3,7 +3,7 @@ import MovementServices from "../services/movement.services.js";
 
 const movementService = new MovementServices();
 
-export default class MovementController extends ClassController{
+export default class MovementController extends ClassController {
   constructor() {
     super(movementService);
   }

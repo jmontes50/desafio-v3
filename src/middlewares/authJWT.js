@@ -1,8 +1,8 @@
-import pkg from 'jsonwebtoken';
+import pkg from "jsonwebtoken";
 const { verify } = pkg;
 import UserDaoMongo from "../daos/mongodb/user.dao.js";
 const userDao = new UserDaoMongo();
-import 'dotenv/config';
+import "dotenv/config";
 
 const SECRET_KEY = process.env.SECRET_KEY_JWT;
 

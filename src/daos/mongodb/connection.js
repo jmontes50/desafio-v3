@@ -1,5 +1,5 @@
 import { connect } from "mongoose";
-import config from '../../config.js';
+import config from "../../config.js";
 
 try {
   console.log("connection", config.MONGO_LOCAL_URL);

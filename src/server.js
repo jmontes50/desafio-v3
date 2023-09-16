@@ -1,9 +1,9 @@
 import express, { json, urlencoded } from "express";
 import "./daos/mongodb/connection.js";
 import morgan from "morgan";
-import MainRouter from './routes/index.js';
-import { errorHandler } from './middlewares/errorHandler.js';
-import config from './config.js';
+import MainRouter from "./routes/index.js";
+import { errorHandler } from "./middlewares/errorHandler.js";
+import config from "./config.js";
 
 const app = express();
 const mainRouter = new MainRouter();
@@ -13,7 +13,7 @@ app
   .use(urlencoded({ extended: true }))
   .use(morgan("dev"))
 
-  .use('/api', mainRouter.getRouter())
+  .use("/api", mainRouter.getRouter())
   .use(errorHandler);
 
 const PORT = config.PORT || 8080;

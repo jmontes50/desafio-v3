@@ -17,13 +17,13 @@ export default class UserDao extends MongoDao {
       });
       if (!newUser) return false;
       else return newUser;
-    }else return false;
+    } else return false;
   }
 
   async getByEmail(email) {
-    const user = await this.model.findOne({ email })
-    if(user) return user;
-    else return false
+    const user = await this.model.findOne({ email });
+    if (user) return user;
+    else return false;
   }
 
   async login(user) {
@@ -31,7 +31,7 @@ export default class UserDao extends MongoDao {
     const userExists = await this.getByEmail(email);
     if (userExists) {
       const passwordValid = isValidPassword(user, password);
-      if (!passwordValid) return false
+      if (!passwordValid) return false;
       else return userExists;
     }
   }

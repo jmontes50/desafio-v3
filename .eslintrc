@@ -9,7 +9,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "import/extensions": "always",
   "rules": {
+    "linebreak-style": ["error", "unix"],
     "no-underscore-dangle": "off",
     "consistent-return": "off",
     "no-shadow": "off",
@@ -23,7 +25,7 @@
         "allow": ["info", "warn", "error"]
       }
     ],
-    "complexity": ["error", 2],
+    "complexity": ["error", 3],
     "prettier/prettier": ["error"]
   }
 }

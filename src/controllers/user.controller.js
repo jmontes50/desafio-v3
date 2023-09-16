@@ -4,7 +4,7 @@ import { createResponse } from "../utils.js";
 
 const userService = new UserServices();
 
-export default class UserController extends ClassController{
+export default class UserController extends ClassController {
   constructor() {
     super(userService);
   }
@@ -12,7 +12,7 @@ export default class UserController extends ClassController{
   register = async (req, res, next) => {
     try {
       const newUser = await userService.register(req.body);
-      if(!newUser) createResponse(res, 404, 'User already exists');
+      if (!newUser) createResponse(res, 404, "User already exists");
       else createResponse(res, 200, newUser);
     } catch (error) {
       next(error.message);

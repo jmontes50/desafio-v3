@@ -3,7 +3,7 @@ import LocationServices from "../services/location.services.js";
 
 const locationService = new LocationServices();
 
-export default class LocationController extends ClassController{
+export default class LocationController extends ClassController {
   constructor() {
     super(locationService);
   }
