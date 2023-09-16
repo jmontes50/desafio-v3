@@ -9,8 +9,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "import/extensions": "always",
   "rules": {
+    "import/extensions": ["error", "ignorePackages", { "svg": "always" }],
+    "class-methods-use-this": ["error", { "enforceForClassFields": false }],
     "linebreak-style": ["error", "unix"],
     "no-underscore-dangle": "off",
     "consistent-return": "off",

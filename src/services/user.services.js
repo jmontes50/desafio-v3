@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import pkg from "jsonwebtoken";
 import Services from "./class.services.js";
 import "dotenv/config";
@@ -24,7 +25,7 @@ export default class UserServices extends Services {
     try {
       return await userDao.register(user);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

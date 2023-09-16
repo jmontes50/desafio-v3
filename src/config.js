@@ -6,4 +6,5 @@ export default {
   MONGO_ATLAS_URL: process.env.MONGO_ATLAS_URL,
   MONGO_LOCAL_URL: process.env.MONGO_LOCAL_URL,
   // MONGO_QA_URL: process.env.MONGO_QA_URL
+  SECRET_KEY_JWT: process.env.SECRET_KEY_JWT,
 };

@@ -18,4 +18,4 @@ app
 
 const PORT = config.PORT || 8080;
 
-app.listen(PORT, () => console.log(`SERVER UP ON PORT ${PORT}`));
+app.listen(PORT, () => console.info(`SERVER UP ON PORT ${PORT}`));
