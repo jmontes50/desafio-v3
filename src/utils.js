@@ -1,8 +1,9 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-export const __dirname = dirname(fileURLToPath(import.meta.url));
 
 import bcrypt from "bcrypt";
+
+export const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const createHash = (password) =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(10));
@@ -10,6 +11,5 @@ export const createHash = (password) =>
 export const isValidPassword = (user, password) =>
   bcrypt.compareSync(password, user.password);
 
-export const createResponse = (res, statusCode, data) => {
-  return res.status(statusCode).json({ data });
-};
+export const createResponse = (res, statusCode, data) =>
+  res.status(statusCode).json({ data });

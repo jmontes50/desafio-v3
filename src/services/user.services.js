@@ -17,6 +17,9 @@ export default class UserServices extends Services {
   #generateToken(user) {
     const payload = {
       id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
     };
     return pkg.sign(payload, SECRET_KEY, { expiresIn: "3m" });
   }
@@ -33,7 +36,7 @@ export default class UserServices extends Services {
     const userExists = await userDao.login(user);
     if (userExists) {
       const token = this.#generateToken(userExists);
-      return { token, user: userExists };
+      return { token };
     }
     return false;
   }

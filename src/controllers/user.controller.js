@@ -1,6 +1,7 @@
 import ClassController from "./class.controller.js";
 import UserServices from "../services/user.services.js";
 import { createResponse } from "../utils.js";
+import generateToken from "../jwt/auth.js";
 
 const userService = new UserServices();
 
@@ -25,22 +26,21 @@ export default class UserController extends ClassController {
       res.header("Authorization", token);
       createResponse(res, 200, token);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       next(error.message);
     }
   };
 
   profile = (req, res, next) => {
     try {
-      const { first_name, last_name, email, role } = req.user;
+      const { name, email, role } = req.user;
       createResponse(res, 200, {
-        first_name,
-        last_name,
+        name,
         email,
         role,
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       next(error.message);
     }
   };

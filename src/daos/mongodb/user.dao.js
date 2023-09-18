@@ -16,14 +16,15 @@ export default class UserDao extends MongoDao {
         password: createHash(password),
       });
       if (!newUser) return false;
-      else return newUser;
-    } else return false;
+      return newUser;
+    }
+    return false;
   }
 
   async getByEmail(email) {
     const user = await this.model.findOne({ email });
     if (user) return user;
-    else return false;
+    return false;
   }
 
   async login(user) {
@@ -32,7 +33,7 @@ export default class UserDao extends MongoDao {
     if (userExists) {
       const passwordValid = isValidPassword(user, password);
       if (!passwordValid) return false;
-      else return userExists;
+      return userExists;
     }
   }
 }
