@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { Schema, model } from "mongoose";
 
 const clientSchema = new Schema(

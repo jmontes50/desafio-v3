@@ -1,11 +1,9 @@
 /* eslint-disable class-methods-use-this */
 import pkg from "jsonwebtoken";
 import Services from "./class.services.js";
-import "dotenv/config";
+import config from "../config.js";
 
 import UserDao from "../daos/mongodb/user.dao.js";
-
-const SECRET_KEY = process.env.JWT_SECRET;
 
 const userDao = new UserDao();
 
@@ -21,7 +19,7 @@ export default class UserServices extends Services {
       email: user.email,
       role: user.role,
     };
-    return pkg.sign(payload, SECRET_KEY, { expiresIn: "3m" });
+    return pkg.sign(payload, config.SECRET_KEY_JWT, { expiresIn: "3m" });
   }
 
   async register(user) {

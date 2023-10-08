@@ -1,9 +1,8 @@
+/* eslint-disable class-methods-use-this */
 import pkg from "jsonwebtoken";
 import Services from "./class.services.js";
-
-const SECRET_KEY = process.env.JWT_SECRET;
-
 import ClientDao from "../daos/mongodb/client.dao.js";
+import config from "../config.js";
 
 const clientDao = new ClientDao();
 
@@ -17,8 +16,9 @@ export default class ClientServices extends Services {
       id: client._id,
       name: client.name,
       email: client.email,
+      cart: client.cart,
     };
-    return pkg.sign(payload, SECRET_KEY, { expiresIn: "3m" });
+    return pkg.sign(payload, config.SECRET_KEY_JWT, { expiresIn: "3m" });
   }
 
   async register(client) {

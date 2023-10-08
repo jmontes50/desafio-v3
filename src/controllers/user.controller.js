@@ -1,7 +1,6 @@
 import ClassController from "./class.controller.js";
 import UserServices from "../services/user.services.js";
 import { createResponse } from "../utils.js";
-import generateToken from "../jwt/auth.js";
 
 const userService = new UserServices();
 
