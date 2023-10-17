@@ -9,8 +9,8 @@ const router = Router();
 router
   .get("/", controller.getAll)
   .get("/:id", controller.getById)
-  .post("/", checkUserRole(), controller.create)
-  .put("/:id", checkUserRole(), controller.update)
-  .delete("/:id", checkUserRole(), controller.delete);
+  .post("/", checkUserRole, controller.create)
+  .put("/:id", checkUserRole, controller.update)
+  .delete("/:id", checkUserRole, controller.delete);
 
 export default router;

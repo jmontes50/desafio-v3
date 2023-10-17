@@ -9,8 +9,9 @@ const router = Router();
 router
   .get("/", controller.getAll)
   .get("/:id", controller.getById)
+  .get("/purchase/:cid", controller.purchase)
   .post("/", controller.create)
-  .put("/:id", checkCartOwner(), controller.update)
-  .delete("/:id", checkCartOwner(), controller.delete);
+  .put("/:id", checkCartOwner, controller.update)
+  .delete("/:id", checkCartOwner, controller.delete);
 
 export default router;

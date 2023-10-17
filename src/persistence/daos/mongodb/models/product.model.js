@@ -21,6 +21,8 @@ const productSchema = new Schema(
       type: String,
       default: "",
     },
+    //no considerare variantes por ahora
+    /*
     variants: [
       {
         nameVariant: {
@@ -34,7 +36,12 @@ const productSchema = new Schema(
           type: Number,
         },
       },
-    ],
+    ],*/
+    stock: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
     type: {
       ref: "Category",
       type: Schema.Types.ObjectId,

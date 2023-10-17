@@ -8,4 +8,8 @@ export default class CartServices extends Services {
   constructor() {
     super(cartDao);
   }
+
+  async purchase(cartId) {
+    return await cartDao.purchase(cartId);
+  }
 }

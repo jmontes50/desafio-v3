@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import uuid from "uuid";
 
 const saleSchema = new Schema(
   {
@@ -11,6 +12,10 @@ const saleSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    code: {
+      type: String,
+      default: "",
+    },
     products: [
       {
         id: {
@@ -22,13 +27,13 @@ const saleSchema = new Schema(
           min: 1,
           required: true,
         },
-        //aquí asumo que tengo que añadir la variante
+        // aquí asumo que tengo que añadir la variante
       },
     ],
-    movement: {
-      type: Schema.Types.ObjectId,
-      ref: "Movement",
-    },
+    // movement: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Movement",
+    // },
     total: {
       type: Number,
       required: true,
@@ -48,5 +53,12 @@ const saleSchema = new Schema(
     timestamps: true,
   },
 );
+
+saleSchema.pre("save", function (next) {
+  if (!this.code) {
+    this.code = uuid.v4();
+  }
+  next();
+});
 
 export const saleModel = model("Sale", saleSchema);

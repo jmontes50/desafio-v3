@@ -1,3 +1,7 @@
+/*Lo dejo para una siguiente versión donde me gustaria manejar "Ubicaciones"
+Cada ubicación podria representar un almacen
+
+*/
 import { Schema, model } from "mongoose";
 
 const locationSchema = new Schema(
